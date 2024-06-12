@@ -1,0 +1,35 @@
+﻿@model IEnumerable<BackendDeveloper_Suryadeep.Models.Department>
+
+@{
+    ViewData["Title"] = "Departments";
+}
+
+<h1>Departments</h1>
+
+<p>
+    <a href="/Departments/Create">Create New</a>
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Logo</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var department in Model)
+        {
+            <tr>
+                <td>@department.Name</td>
+                <td><img src="@department.Logo" alt="@department.Name Logo" width="50" height="50" /></td>
+                <td>
+                    <a href="/Departments/Details/@department.Id">Details</a> |
+                    <a href="/Departments/Edit/@department.Id">Edit</a> |
+                    <a href="/Departments/Delete/@department.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
